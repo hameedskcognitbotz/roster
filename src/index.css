@@ -1,0 +1,203 @@
+@import "tailwindcss";
+
+/* Custom Design System Variables - Premium Palette */
+:root {
+  --color-primary: #0f172a;
+  --color-primary-light: #1e293b;
+  --color-accent: #6366f1;
+  /* Indigo 500 */
+  --color-accent-hover: #4f46e5;
+  /* Indigo 600 */
+  --color-accent-subtle: #eef2ff;
+  /* Indigo 50 */
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
+  --color-bg-body: #f8fafc;
+  --color-bg-card: #ffffff;
+  --color-text-main: #0f172a;
+  --color-text-muted: #64748b;
+  --color-border: #f1f5f9;
+
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+  --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.05), 0 8px 10px -6px rgb(0 0 0 / 0.05);
+  --shadow-premium: 0 10px 40px -10px rgba(0, 0, 0, 0.08);
+
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+
+  --transition-slow: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+  font-family: 'Outfit', 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--color-bg-body);
+  color: var(--color-text-main);
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: -0.01em;
+}
+
+/* Glassmorphism Utilities */
+.glass {
+  @apply bg-white/70 backdrop-blur-xl border border-white/20 shadow-xl;
+}
+
+.glass-dark {
+  @apply bg-slate-900/40 backdrop-blur-xl border border-white/10 shadow-xl;
+}
+
+/* Custom Component Classes */
+.btn {
+  @apply inline-flex items-center justify-center px-5 py-2.5 rounded-xl font-semibold transition-all duration-300 gap-2 active:scale-95 disabled:opacity-50 disabled:pointer-events-none;
+}
+
+.btn-primary {
+  @apply bg-slate-900 text-white hover:bg-black shadow-lg shadow-black/10;
+}
+
+.btn-accent {
+  @apply bg-indigo-600 text-white hover:bg-indigo-700 shadow-lg shadow-indigo-600/20 hover:shadow-indigo-600/30;
+}
+
+.btn-outline {
+  @apply border-2 border-slate-100 bg-white text-slate-700 hover:border-indigo-100 hover:bg-indigo-50/30 hover:text-indigo-600;
+}
+
+.btn-ghost {
+  @apply bg-transparent text-slate-500 hover:bg-slate-100 hover:text-slate-900;
+}
+
+.card {
+  @apply bg-white rounded-2xl border border-slate-100 shadow-sm transition-all duration-300 hover:shadow-premium hover:border-indigo-100/50;
+}
+
+.input {
+  @apply w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-sm transition-all duration-300 focus:outline-none focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/10 placeholder:text-slate-400;
+}
+
+.badge {
+  @apply inline-flex items-center px-2.5 py-1 rounded-lg text-xs font-bold tracking-wide uppercase;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-200 rounded-full hover:bg-slate-300 transition-colors;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse-subtle {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slide-down {
+  animation: slideDown 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.delay-100 {
+  animation-delay: 100ms;
+}
+
+.delay-200 {
+  animation-delay: 200ms;
+}
+
+.delay-300 {
+  animation-delay: 300ms;
+}
+
+.delay-400 {
+  animation-delay: 400ms;
+}
+
+.delay-500 {
+  animation-delay: 500ms;
+}
+
+/* Grid Background */
+.bg-grid {
+  background-size: 40px 40px;
+  background-image:
+    linear-gradient(to right, #f1f5f9 1px, transparent 1px),
+    linear-gradient(to bottom, #f1f5f9 1px, transparent 1px);
+}
