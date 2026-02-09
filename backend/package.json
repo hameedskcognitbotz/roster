@@ -1,0 +1,22 @@
+{
+    "name": "shiftmaster-backend",
+    "version": "1.0.0",
+    "type": "module",
+    "scripts": {
+        "dev": "bun --watch src/index.ts",
+        "start": "bun src/index.ts",
+        "seed": "bun src/seed/index.ts"
+    },
+    "dependencies": {
+        "hono": "^4.0.0",
+        "mongodb": "^6.3.0",
+        "zod": "^3.22.0",
+        "bcryptjs": "^2.4.3",
+        "jsonwebtoken": "^9.0.0"
+    },
+    "devDependencies": {
+        "@types/bcryptjs": "^2.4.6",
+        "@types/jsonwebtoken": "^9.0.5",
+        "bun-types": "latest"
+    }
+}
